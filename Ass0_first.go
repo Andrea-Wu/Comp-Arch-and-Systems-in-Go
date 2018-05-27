@@ -1,4 +1,5 @@
 package main
+  //  fmt.Printf("count is %d\n", count)
 
 import (
     "fmt"
@@ -47,8 +48,9 @@ func main(){
             fmt.Printf("%s is not a number\n", token)
             char_arr = append(char_arr, token)
         }
+        
     }
-
+        
     for i := 0; i < count; i++{
         fmt.Printf("int at %d is %d\n", i, int_arr[i])
         fmt.Printf("char at %d is %s\n", i, char_arr[i])
@@ -61,7 +63,7 @@ func main(){
     for i := 0; i < count; i++{
         Char := char_arr[i]
         Int := int_arr[i]
-
+        
         fmt.Printf("currently on %d iteration\n", i)
 
         if Char == "d"{
@@ -71,16 +73,16 @@ func main(){
                 continue
             }
 
-
+                             
         }else if Char == "i"{
-
+        
             //this breaks it
             //var newNode *node
 
             newNode := &node{nil, Int}
            // newNode.data = Int
-
-            if head == nil{
+        
+            if head == nil{  
                 head = newNode
                 continue;
             }
@@ -93,8 +95,9 @@ func main(){
             //dynamic type declaration
             temp := head
             var prev *node
-
+            
             isDuplicate := false
+
             for temp != nil && temp.data <= newNode.data {
                 if temp.data == newNode.data{
                     fmt.Printf("can't insert duplicates\n")
@@ -107,7 +110,7 @@ func main(){
                 prev = temp
                 temp = temp.next
             }
-
+            
             //3 conditions that cause break
 
             if isDuplicate{
@@ -119,7 +122,7 @@ func main(){
                 prev.next = newNode
                 continue
             }
-
+            
             //t.data > n.data
             if temp.data > newNode.data{
 
@@ -132,22 +135,25 @@ func main(){
                     newNode.next = temp
                 }
                 continue
-            }
+            }                    
         }else{
             fmt.Printf("can't do strings like that\n")
         }
     }
     fmt.Printf("about to print LL\n")
      printLL(head)
-     
- }
+
+}
 
 func printLL(head *node) int{
-
+        
         for temp := head; temp != nil; temp = temp.next{
             fmt.Printf("sorted: %d\n", temp.data)
         }
         return 0;
+        
+}
 
-}    
-     
+
+
+
